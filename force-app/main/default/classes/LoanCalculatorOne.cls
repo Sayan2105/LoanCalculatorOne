@@ -7,7 +7,7 @@ public class LoanCalculatorOne {
             Loan_Amount__c = Decimal.valueOf(loanAmount),
             Loan_Reason__c = loanReason,
             Tenure__c = tenure
-            // Do not set Monthly_Installment__c and Annual_Installment__c since they are formula fields
+            // Not setting Monthly_Installment__c and Annual_Installment__c since they are formula fields
         );
         insert newLoan;
     }
@@ -30,7 +30,7 @@ public class LoanCalculatorOne {
 	}
     
     
-    // Delete all the records where loan amount == 10
+    // Delete all the records where loan amount == 0
     @AuraEnabled
     public static void deleteLoanRecords() {
         List<Loan_Application__c> loans = [SELECT Id FROM Loan_Application__c WHERE Loan_Amount__c = 0];
