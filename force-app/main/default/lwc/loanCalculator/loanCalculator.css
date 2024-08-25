@@ -1,0 +1,19 @@
+.slds-m-bottom_small {
+    margin-bottom: 1rem;
+}
+
+.slds-text-heading_medium {
+    font-weight: bold;
+    font-size: 1.25rem;
+}
+
+.result-pop-up {
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.slds-is-visible .result-pop-up {
+    opacity: 1;
+    transform: scale(1);
+}

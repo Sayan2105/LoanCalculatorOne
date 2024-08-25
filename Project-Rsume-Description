@@ -1,0 +1,17 @@
+Salesforce Loan Calculator Project
+Project Overview: Designed and implemented a sophisticated Loan Calculator application within Salesforce using Lightning Web Components (LWC) and Apex. This tool calculates and displays both monthly and annual loan installments, providing an accurate financial solution.
+
+Key Features:
+
+Dynamic User Interface: Developed an intuitive interface using LWC, featuring real-time data entry for loan amount, reason, and tenure.
+Accurate Calculations: Applied JavaScript to calculate monthly and annual installments with precision, integrating complex interest rate factors based on loan type and market conditions.
+Backend Integration: Utilized Salesforce Apex to manage loan records and ensure secure, reliable data operations. Implemented CRUD operations to handle record creation while adhering to Salesforce security best practices.
+Error Handling & Validation: Incorporated robust error handling and validation mechanisms to ensure data integrity and provide user feedback through Toast messages.
+Enhanced User Experience: Designed a visually appealing layout with Salesforce Lightning Design System (SLDS) to enhance usability and engagement.
+Technologies Used:
+
+Frontend: Lightning Web Components (LWC), Salesforce Lightning Design System (SLDS), JavaScript
+Backend: Salesforce Apex, Salesforce CRUD operations
+Additional Tools: Salesforce Platform, Visual Studio Code for development
+Outcome: Delivered a functional and user-friendly loan calculator that improves financial decision-making, demonstrating strong skills in both Salesforce development and user interface design.
+

@@ -1,0 +1,87 @@
+<template>
+    <lightning-card title="Loan Calculator" icon-name="action:goal">
+        <div class="slds-p-around_medium">
+            <div class="slds-grid slds-wrap slds-gutters">
+
+                <!-- Loan Amount Input -->
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-p-around_x-small"> 
+                    <lightning-input 
+                        label="Loan Amount" 
+                        value={loanAmount} 
+                        type="number" 
+                        onchange={handleLoanAmountChange} 
+                        variant="label-stacked"> 
+                    </lightning-input> 
+                </div> 
+
+                <!-- Loan Reason Combobox --> 
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-p-around_x-small"> 
+                    <lightning-combobox 
+                        label="Loan Reason" 
+                        value={loanReason} 
+                        options={loanOptions} 
+                        onchange={handleLoanReasonChange} 
+                        variant="label-stacked"> 
+                    </lightning-combobox> 
+                </div> 
+
+                <!-- Tenure Input --> 
+                <div class="slds-col slds-size_1-of-1 slds-p-around_x-small"> 
+                    <lightning-input 
+                        label="Tenure (Months)" 
+                        value={tenure} 
+                        type="number" 
+                        onchange={handleTenureChange} 
+                        variant="label-stacked"> 
+                    </lightning-input> 
+                </div> 
+
+                <!-- Calculate Button --> 
+                <div class="slds-col slds-size_1-of-1 slds-text-align_center slds-p-around_x-small"> 
+                    <lightning-button 
+                        label="Calculate" 
+                        onclick={calculateInstallments} 
+                        variant="brand"> 
+                    </lightning-button> 
+                </div> 
+
+                <!-- Results Section --> 
+                <template if:true={showResult}> 
+                    <div class="slds-col slds-size_1-of-1 slds-p-around_x-small"> 
+                        <div class="slds-box slds-theme_default slds-text-align_center slds-p-around_medium"> 
+                            <p class="slds-text-heading_medium slds-m-bottom_medium">Calculation Results</p> 
+                            <p class="slds-text-title_bold">Monthly Installment: <span class="slds-text-color_success"> {monthlyInstallment}</span></p> 
+                            <p class="slds-text-title_bold">Annual Installment: <span class="slds-text-color_success"> {annualInstallment}</span></p> 
+                        </div> 
+                    </div> 
+                </template> 
+
+                <!-- Loan Records Section -->
+                <template if:true={loanRecords.length}> 
+                    <div class="slds-col slds-size_1-of-1 slds-p-around_x-small"> 
+                        <ul class="slds-list_dotted slds-p-left_large"> 
+                            <template for:each={loanRecords} for:item="loan"> 
+                                <li key={loan.Id}> 
+                                    <p>{loan.Loan_Amount__c} - {loan.Loan_Reason__c} - {loan.Tenure__c} - {loan.Monthly_Installment__c}</p> 
+                                </li> 
+                            </template> 
+                        </ul> 
+                    </div> 
+                </template> 
+                
+                <template if:false={loanRecords.length}>
+                    <div class="slds-col slds-size_1-of-1 slds-p-around_x-small">
+                        <p class="slds-text-align_center slds-text-color_weak">No loan records found.</p>
+                    </div>
+                </template>
+
+                <!-- Get, Update, Delete Buttons -->
+                <div class="slds-col slds-size_1-of-1 slds-text-align_center slds-p-around_x-small">
+                    <lightning-button label="Get Loan Records" onclick={handleGetLoanRecords} variant="neutral"></lightning-button> 
+                    <lightning-button label="Update Loan Records" onclick={handleUpdateLoanRecords} variant="neutral" class="slds-m-left_small"></lightning-button>
+                    <lightning-button label="Delete 10's Records" onclick={handleDeleteLoanRecords} variant="destructive" class="slds-m-left_small"></lightning-button>
+                </div> 
+            </div> 
+        </div> 
+    </lightning-card> 
+</template>
